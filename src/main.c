@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 20:12:26 by anttorre          #+#    #+#             */
-/*   Updated: 2024/03/15 18:50:51 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/03/15 18:54:18 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	process_input(char *input, t_data *d, char **env)
 	if (g_status == 13)
 		g_status = 0;
 	update_gstatus(d);
-	return (printf("builtin g_status = %d\n", g_status), EXIT_SUCCESS);
+	return (EXIT_SUCCESS);
 }
 
 int	minishell(char **env, t_data *d)
