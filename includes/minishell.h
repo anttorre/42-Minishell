@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 20:14:39 by anttorre          #+#    #+#             */
-/*   Updated: 2024/03/15 17:52:41 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/03/15 18:42:21 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -229,6 +229,7 @@ int			parser_6_continue(t_data *d, t_mini **node, int i);
 void		free_node_2(t_mini *node);
 int			parser_8_continue(t_data *d, t_mini **node, int *i);
 void		parser_8_continue_2(t_mini **node);
+char		*ft_strjoin_gnl_3(char *s1, char *s2);
 
 /*--- HERE_DOC.c ---*/
 void		here_doc(t_data *d, char *delimiter);
@@ -250,6 +251,7 @@ int			builtin(t_data *d, t_list *cmd, char **env);
 void		*exec_cmd(t_data *d, t_list *cmd, char **env);
 void		*check_to_fork(t_data *d, t_list *cmd, int fd[2], char **env);
 int			check_f_d(t_mini *n);
+char		*clean_quotes(char *s);
 
 /*--- LEXER_COPY.c ---*/
 void		lexer_2(t_data *d);
@@ -260,5 +262,6 @@ void		handler_sigint(int sig);
 void		handler_sigquit(int sig);
 
 int			check_f_d(t_mini *n);
+int			check_builtin_2(char *s);
 
 #endif

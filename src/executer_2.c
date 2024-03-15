@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 17:49:17 by anttorre          #+#    #+#             */
-/*   Updated: 2024/03/15 17:52:12 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/03/15 18:29:59 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,4 +103,26 @@ int	builtin(t_data *d, t_list *cmd, char **env)
 		cmd = cmd->next;
 	}
 	return (g_status);
+}
+
+char	*clean_quotes(char *s)
+{
+	char	*res;
+	int		i;
+	int		j;
+
+	res = ft_calloc(ft_strlen(s) + 1, sizeof(char));
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		if (s[i] != '\'' && s[i] != '\"')
+		{
+			res[j] = s[i];
+			j++;
+		}
+		i++;
+	}
+	res[j] = '\0';
+	return (res);
 }

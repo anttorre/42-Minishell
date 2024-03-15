@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:26:02 by anttorre          #+#    #+#             */
-/*   Updated: 2024/03/15 17:20:04 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/03/15 18:50:28 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,23 @@ int	check_quotes(char *s)
 	if (fq_double || fq_simple)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
+}
+
+int	check_builtin_2(char *s)
+{
+	if (!ft_strncmp(s, "pwd\0", ft_strlen("pwd\0")))
+		return (free(s), 1);
+	if (!ft_strncmp(s, "echo\0", ft_strlen("echo\0")))
+		return (free(s), 1);
+	if (!ft_strncmp(s, "env\0", ft_strlen("env\0")))
+		return (free(s), 1);
+	if (!ft_strncmp(s, "unset\0", ft_strlen("unset\0")))
+		return (free(s), 1);
+	if (!ft_strncmp(s, "exit\0", ft_strlen("exit\0")))
+		return (free(s), 1);
+	if (!ft_strncmp(s, "export\0", ft_strlen("export\0")))
+		return (free(s), 1);
+	if (!ft_strncmp(s, "cd\0", ft_strlen("cd\0")))
+		return (free(s), 1);
+	return (free(s), 0);
 }

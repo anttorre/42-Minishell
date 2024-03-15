@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 15:42:08 by anttorre          #+#    #+#             */
-/*   Updated: 2024/03/15 14:44:34 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/03/15 18:49:50 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,33 @@ void	parser_8_continue_2(t_mini **node)
 	(*node) = ft_calloc(1, sizeof(t_mini));
 	(*node)->outfile = 1;
 	(*node)->infile = 0;
+}
+
+char	*ft_strjoin_gnl_3(char *s1, char *s2)
+{
+	size_t	s1_length;
+	char	*result;
+	int		i;
+
+	if (!s1)
+	{
+		s1 = ft_calloc_gnl(1, sizeof(char));
+		if (!s1)
+			return (free(s1), s1 = NULL, NULL);
+	}
+	if (!s1 || !s2)
+		return (free(s1), s1 = NULL, NULL);
+	s1_length = ft_strlen_gnl(s1);
+	result = (char *)ft_calloc_gnl((s1_length + ft_strlen_gnl(s2) + 1),
+			sizeof(char));
+	if (!result)
+		return (free(s1), s1 = NULL, NULL);
+	i = -1;
+	while (s1[++i])
+		result[i] = s1[i];
+	i = -1;
+	while (s2[++i])
+		result[s1_length + i] = s2[i];
+	result[s1_length + i] = '\0';
+	return (free(s2), s2 = NULL, result);
 }
